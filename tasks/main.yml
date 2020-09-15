@@ -1,0 +1,31 @@
+---
+
+- name: Install dependencies
+  apt:
+    pkg:
+    - software-properties-common
+    - apt-transport-https
+    - wget
+- name: Add an Apt signing key
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+- apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+    state: present
+
+- name: Install visual studio code
+  apt:
+    pkg:
+    - code
+
+- name: Bash aliases | Add aliases
+  lineinfile:
+    dest: "{{ bash_aliases_path }}"
+    create: yes
+    mode: 0644
+    line: 'alias vscode="/usr/share/code/code --no-sandbox --unity-launch %F"'
+
+
+
+

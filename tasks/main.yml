@@ -19,12 +19,12 @@
     pkg:
     - code
 
-- name: Bash aliases | Add aliases
-  lineinfile:
-    dest: "{{ bash_aliases_path }}"
-    create: yes
-    mode: 0644
-    line: 'alias vscode="/usr/share/code/code --no-sandbox --unity-launch %F"'
+#- name: Bash aliases | Add aliases
+#  lineinfile:
+#    dest: "{{ bash_aliases_path }}"
+#    create: yes
+#    mode: 0644
+#    line: 'alias vscode="/usr/share/code/code --no-sandbox --unity-launch %F"'
 
 
 
